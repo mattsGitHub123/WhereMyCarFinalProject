@@ -8,22 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		7B05E6D31DF485210043B8FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B05E6D21DF485210043B8FD /* AppDelegate.swift */; };
-		7B05E6D51DF485210043B8FD /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B05E6D41DF485210043B8FD /* FirstViewController.swift */; };
-		7B05E6D71DF485210043B8FD /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B05E6D61DF485210043B8FD /* SecondViewController.swift */; };
+		7B05E6D51DF485210043B8FD /* loggedLocations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B05E6D41DF485210043B8FD /* loggedLocations.swift */; };
+		7B05E6D71DF485210043B8FD /* locationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B05E6D61DF485210043B8FD /* locationViewController.swift */; };
 		7B05E6DA1DF485210043B8FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B05E6D81DF485210043B8FD /* Main.storyboard */; };
 		7B05E6DC1DF485210043B8FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B05E6DB1DF485210043B8FD /* Assets.xcassets */; };
 		7B05E6DF1DF485210043B8FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B05E6DD1DF485210043B8FD /* LaunchScreen.storyboard */; };
+		7B05E6E81DF4967E0043B8FD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B05E6E71DF4967E0043B8FD /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		7B05E6CF1DF485210043B8FD /* WheresMyCar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WheresMyCar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B05E6D21DF485210043B8FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7B05E6D41DF485210043B8FD /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		7B05E6D61DF485210043B8FD /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		7B05E6D41DF485210043B8FD /* loggedLocations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loggedLocations.swift; sourceTree = "<group>"; };
+		7B05E6D61DF485210043B8FD /* locationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = locationViewController.swift; sourceTree = "<group>"; };
 		7B05E6D91DF485210043B8FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7B05E6DB1DF485210043B8FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7B05E6DE1DF485210043B8FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7B05E6E01DF485210043B8FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7B05E6E71DF4967E0043B8FD /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B05E6E81DF4967E0043B8FD /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +45,7 @@
 			children = (
 				7B05E6D11DF485210043B8FD /* WheresMyCar */,
 				7B05E6D01DF485210043B8FD /* Products */,
+				7B05E6E61DF4967E0043B8FD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,14 +61,22 @@
 			isa = PBXGroup;
 			children = (
 				7B05E6D21DF485210043B8FD /* AppDelegate.swift */,
-				7B05E6D41DF485210043B8FD /* FirstViewController.swift */,
-				7B05E6D61DF485210043B8FD /* SecondViewController.swift */,
+				7B05E6D41DF485210043B8FD /* loggedLocations.swift */,
+				7B05E6D61DF485210043B8FD /* locationViewController.swift */,
 				7B05E6D81DF485210043B8FD /* Main.storyboard */,
 				7B05E6DB1DF485210043B8FD /* Assets.xcassets */,
 				7B05E6DD1DF485210043B8FD /* LaunchScreen.storyboard */,
 				7B05E6E01DF485210043B8FD /* Info.plist */,
 			);
 			path = WheresMyCar;
+			sourceTree = "<group>";
+		};
+		7B05E6E61DF4967E0043B8FD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7B05E6E71DF4967E0043B8FD /* MapKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -100,6 +112,11 @@
 					7B05E6CE1DF485210043B8FD = {
 						CreatedOnToolsVersion = 8.1;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -139,9 +156,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7B05E6D71DF485210043B8FD /* SecondViewController.swift in Sources */,
+				7B05E6D71DF485210043B8FD /* locationViewController.swift in Sources */,
 				7B05E6D31DF485210043B8FD /* AppDelegate.swift in Sources */,
-				7B05E6D51DF485210043B8FD /* FirstViewController.swift in Sources */,
+				7B05E6D51DF485210043B8FD /* loggedLocations.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
