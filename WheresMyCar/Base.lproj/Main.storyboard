@@ -9,6 +9,60 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Logged Locations Table View Controller-->
+        <scene sceneID="PpI-S1-RAV">
+            <objects>
+                <tableViewController id="qwE-Nx-c5d" customClass="LoggedLocationsTableViewController" customModule="WheresMyCar" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="22" sectionFooterHeight="22" id="1ZD-xA-dct">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="LoggedLocationTableViewCell" rowHeight="90" id="laP-dS-2gw" customClass="LoggedLocationTableViewCell" customModule="WheresMyCar" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="22" width="375" height="90"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="laP-dS-2gw" id="4pf-bM-eRh">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="X7S-Hb-xZh">
+                                            <rect key="frame" x="0.0" y="0.0" width="89" height="89"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZJx-aM-tg8">
+                                            <rect key="frame" x="97" y="21" width="270" height="29"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rtp-eA-5I8">
+                                            <rect key="frame" x="97" y="46" width="270" height="36"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="nameLabel" destination="ZJx-aM-tg8" id="mFp-k3-l6U"/>
+                                    <outlet property="notesLabel" destination="Rtp-eA-5I8" id="CDp-Ho-N94"/>
+                                    <outlet property="photoImageView" destination="X7S-Hb-xZh" id="fXO-dO-IdO"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="qwE-Nx-c5d" id="l53-kX-TaI"/>
+                            <outlet property="delegate" destination="qwE-Nx-c5d" id="lE5-w7-KHx"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="25W-aC-4XH"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dV3-st-PSZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1740" y="-456.52173913043481"/>
+        </scene>
         <!--SavedLocations-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
@@ -47,7 +101,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="-320"/>
+            <point key="canvasLocation" x="2564" y="-455.62218890554726"/>
         </scene>
         <!--Location-->
         <scene sceneID="wg7-f3-ORb">
@@ -69,6 +123,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="UwG-tW-OgO">
+                        <barButtonItem key="leftBarButtonItem" systemItem="save" id="sS9-XT-Gaj"/>
                         <barButtonItem key="rightBarButtonItem" title="Find Location" style="plain" id="ZyY-tW-Qh9">
                             <connections>
                                 <action selector="findLocationButton:" destination="8rJ-Kc-sve" id="2Zm-33-ihT"/>
@@ -94,8 +149,8 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="cQC-4p-yFL" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
+                        <segue destination="pnf-f0-vbx" kind="relationship" relationship="viewControllers" id="2WG-Ss-2fO"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -119,10 +174,30 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dEW-yj-bTX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="749.60000000000002" y="359.37031484257875"/>
+            <point key="canvasLocation" x="801" y="359"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="6Kh-eH-xLl">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pnf-f0-vbx" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" image="list" id="Deq-Fb-ra5"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="a4u-pG-bZR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="qwE-Nx-c5d" kind="relationship" relationship="rootViewController" id="cLL-rG-wUC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="32c-zW-OQz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="800.79999999999995" y="-456.52173913043481"/>
         </scene>
     </scenes>
     <resources>
+        <image name="defaultPhoto" width="200" height="150"/>
         <image name="list" width="25" height="25"/>
         <image name="mapMarker" width="25" height="25"/>
     </resources>

@@ -46,9 +46,8 @@ class locationViewController: UIViewController, CLLocationManagerDelegate {
         let annotation = MKPointAnnotation()
         
         annotation.coordinate = (currentLocation?.coordinate)!
-        annotation.title = "Car"
-        annotation.subtitle = "Cats"
-        
+        annotation.title = "Your Location"
+        //annotation.subtitle = "Cats"
         mapView.addAnnotation(annotation)
     }
     
