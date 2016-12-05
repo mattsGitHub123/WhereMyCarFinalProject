@@ -21,7 +21,7 @@ class locationViewController: UIViewController, CLLocationManagerDelegate {
     //var locationManager: locationManagerController!
     
     @IBOutlet weak var mapView: MKMapView!
-    
+    var updatedCurrent = false
     
     /*
     * findLocationButton
@@ -40,6 +40,20 @@ class locationViewController: UIViewController, CLLocationManagerDelegate {
             self.present(alert, animated: true, completion: nil)
         }
     }
+    
+    /*
+    * saveButton
+    *
+    * Should be clicked after location is found. Will then navigation
+    * to screen that allows input for type of location, notes and to save/cancel
+    */
+    @IBAction func saveButton(_ sender: Any) {
+        if (updatedCurrent == true) {
+            updatedCurrent = false
+            performSegue(withIdentifier: "addDetails", sender: sender)
+        }
+    }
+    
     
     //Puts the car on the map at your current location
     func addCarToMap() {
@@ -110,6 +124,7 @@ class locationViewController: UIViewController, CLLocationManagerDelegate {
             currentLocation = locations.first
             centerMapOnLocation(location: currentLocation!)
             addCarToMap()
+            updatedCurrent = true
         }
     }
     
