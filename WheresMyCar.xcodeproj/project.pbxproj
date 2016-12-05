@@ -14,6 +14,7 @@
 		7B05E6DC1DF485210043B8FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B05E6DB1DF485210043B8FD /* Assets.xcassets */; };
 		7B05E6DF1DF485210043B8FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B05E6DD1DF485210043B8FD /* LaunchScreen.storyboard */; };
 		7B05E6E81DF4967E0043B8FD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B05E6E71DF4967E0043B8FD /* MapKit.framework */; };
+		7B05E6EA1DF4B2D80043B8FD /* locationManagerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B05E6E91DF4B2D80043B8FD /* locationManagerController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		7B05E6DE1DF485210043B8FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7B05E6E01DF485210043B8FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7B05E6E71DF4967E0043B8FD /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		7B05E6E91DF4B2D80043B8FD /* locationManagerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = locationManagerController.swift; path = ../locationManagerController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				7B05E6D21DF485210043B8FD /* AppDelegate.swift */,
+				7B05E6E91DF4B2D80043B8FD /* locationManagerController.swift */,
 				7B05E6D41DF485210043B8FD /* loggedLocations.swift */,
 				7B05E6D61DF485210043B8FD /* locationViewController.swift */,
 				7B05E6D81DF485210043B8FD /* Main.storyboard */,
@@ -111,6 +114,7 @@
 				TargetAttributes = {
 					7B05E6CE1DF485210043B8FD = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = JBZ7PHBWR2;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Maps.iOS = {
@@ -158,6 +162,7 @@
 			files = (
 				7B05E6D71DF485210043B8FD /* locationViewController.swift in Sources */,
 				7B05E6D31DF485210043B8FD /* AppDelegate.swift in Sources */,
+				7B05E6EA1DF4B2D80043B8FD /* locationManagerController.swift in Sources */,
 				7B05E6D51DF485210043B8FD /* loggedLocations.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -281,7 +286,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = JBZ7PHBWR2;
 				INFOPLIST_FILE = WheresMyCar/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.appalachian.WheresMyCar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -293,7 +300,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = JBZ7PHBWR2;
 				INFOPLIST_FILE = WheresMyCar/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.appalachian.WheresMyCar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -320,6 +329,7 @@
 				7B05E6E51DF485210043B8FD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

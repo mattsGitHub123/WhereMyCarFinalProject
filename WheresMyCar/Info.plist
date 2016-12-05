@@ -2,8 +2,16 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>SMAuthorizedClients</key>
+	<array>
+		<string></string>
+	</array>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Needs Location Access</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Needs Location Access</string>
 	<key>CFBundleDevelopmentRegion</key>
-	<string>en</string>
+	<string></string>
 	<key>CFBundleDocumentTypes</key>
 	<array>
 		<dict>
