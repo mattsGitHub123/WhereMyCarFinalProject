@@ -24,6 +24,7 @@ class AddDetailsViewController: UIViewController, UITextFieldDelegate, UIPickerV
     var location: CLLocation?
     var timeStamp: NSDate?
     var imagePicker: UIImagePickerController!
+    var locationFound = false
     
     override func viewDidLoad() {
         navigationItem.hidesBackButton = true
@@ -116,7 +117,8 @@ class AddDetailsViewController: UIViewController, UITextFieldDelegate, UIPickerV
     
     //Called when a location is found
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if locations.count > 0 {
+        if locations.count > 0 && locationFound == false {
+            locationFound = true
             //Last will be the most recent location found.
             currentLocation = locations.first
             var loc: [loggedLocation]
