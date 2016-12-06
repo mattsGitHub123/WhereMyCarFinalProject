@@ -48,8 +48,23 @@ class AddDetailsViewController: UIViewController, UITextFieldDelegate, UIPickerV
         let photo = info[UIImagePickerControllerOriginalImage] as? UIImage
         
         image = photo!
-        imageField.image = image
+        imageField.image = resizeImage(image: image!, newWidth: 230)
     }
+    
+    
+    //Loosly based on: Source http://stackoverflow.com/questions/31966885/ios-swift-resize-image-to-200x200pt-px
+    func resizeImage(image: UIImage, newWidth: CGFloat) -> UIImage? {
+        //let scale = newWidth / image.size.width
+        //let newHeight = image.size.height * scale
+        UIGraphicsBeginImageContext(CGSize(width: newWidth, height: 200))
+        image.draw(in: CGRect(x: 0, y: 0, width: newWidth, height: 200))
+        
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return newImage
+    }
+    
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return pickerData.count
