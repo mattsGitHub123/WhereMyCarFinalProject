@@ -22,7 +22,7 @@ class locationViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
     var updatedCurrent = false
-
+   
     
     /*
     * findLocationButton

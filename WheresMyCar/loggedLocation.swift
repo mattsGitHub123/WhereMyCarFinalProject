@@ -11,9 +11,9 @@ import UIKit
 import CoreLocation
 
 class loggedLocation: NSObject, NSCoding {
-    var name: String
+    var name: String?
     var photo: UIImage?
-    var notes: String
+    var notes: String?
     var timeStamp: NSDate? //If a meter
     var location: CLLocation?
     
@@ -28,7 +28,15 @@ class loggedLocation: NSObject, NSCoding {
         static let locationKey = "location"
     }
     
-    init(name: String, photo: UIImage?, notes: String, timeStamp: NSDate?, location: CLLocation?) {
+    init(name: String?, photo: UIImage?, notes: String?, timeStamp: NSDate?, location: CLLocation?) {
+        if name == nil {
+            self.name = "Not Provided"
+        }
+        
+        if notes == nil {
+            self.name = "Not Provided"
+        }
+        
         self.name = name
         self.photo = photo
         self.notes = notes

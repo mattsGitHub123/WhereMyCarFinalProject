@@ -9,7 +9,7 @@
 import UIKit
 import CoreLocation
 
-class AddDetailsViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class AddDetailsViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate {
 
     @IBOutlet weak var imageField: UIImageView!
     @IBOutlet weak var nameTextField: UITextField!
@@ -22,6 +22,7 @@ class AddDetailsViewController: UIViewController, UITextFieldDelegate, UIPickerV
     var type: String?
     var image: UIImage?
     var location: CLLocation?
+    var timeStamp: NSDate?
     var imagePicker: UIImagePickerController!
     
     override func viewDidLoad() {
@@ -36,11 +37,14 @@ class AddDetailsViewController: UIViewController, UITextFieldDelegate, UIPickerV
         let tap = UITapGestureRecognizer(target: self, action: #selector(AddDetailsViewController.tappedMe))
         imageField.addGestureRecognizer(tap)
         imageField.isUserInteractionEnabled = true
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        CLLocationManager.locationServicesEnabled()
         // Do any additional setup after loading the view.
     }
 
     func saveMethod() {
-        print("Perform action")
+        findLocation()
     }
     
     func tappedMe() {
@@ -106,6 +110,53 @@ class AddDetailsViewController: UIViewController, UITextFieldDelegate, UIPickerV
         // Dispose of any resources that can be recreated.
     }
     
+    // Location Manager
+    var locationManager: CLLocationManager!
+    var currentLocation: CLLocation?
+    
+    //Called when a location is found
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if locations.count > 0 {
+            //Last will be the most recent location found.
+            currentLocation = locations.first
+            //let savedLocations = NSKeyedUnarchiver.unarchiveObject(withFile: loggedLocation.ArchiveURL.path) as! [loggedLocation]
+            //if savedLocations == nil {
+            //    print("nil")
+            //}
+            //else {
+                var loc = [loggedLocation]()
+                loc.append(loggedLocation(name: name, photo: image, notes: notes, timeStamp: NSDate(), location: currentLocation))
+                let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(loc, toFile: loggedLocation.ArchiveURL.path)
+                if !isSuccessfulSave {
+                    print("Failed to save meals...")
+                }
+            //}
+        }
+    }
+    
+    //Accessor for current location
+    func getCurrentLocation() -> CLLocation {
+        while (currentLocation == nil) {
+            //wait
+        }
+        return currentLocation!
+    }
+    
+    //Location manager to obtain a locatin fix, may take several secounds.
+    func findLocation() {
+        locationManager.requestLocation()
+    }
+    
+    //Print to console in case of error
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("didFailWithError: " + error.localizedDescription)
+    }
+    
+    //Check authorization status
+    func canGetLocation() -> Bool {
+        return (CLLocationManager.authorizationStatus() != CLAuthorizationStatus.denied &&
+            CLLocationManager.authorizationStatus() != CLAuthorizationStatus.restricted)
+    }
     /*
     // MARK: - Navigation
 
