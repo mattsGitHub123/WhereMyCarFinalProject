@@ -17,9 +17,7 @@ class LoggedLocationsTableViewController: UITableViewController {
         super.viewDidLoad()
 
         // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-       
+        // self.clearsSelectionOnViewWillAppear = fals
         navigationItem.leftBarButtonItem = editButtonItem
         //loadSampleLocations()
         //saveLoggedLocations()
@@ -35,17 +33,19 @@ class LoggedLocationsTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        refreshLoggedLocations()
+    }
+
+    func refreshLoggedLocations() {
         if let savedLocations = loadLoggedLocations() {
             for location in savedLocations {
                 if !(loggedLocations.contains(location)) {
                     loggedLocations.append(location)
                 }
             }
-        } else {
-            loadSampleLocations()
         }
     }
-
+        
     //Used for demo purposes
     func loadSampleLocations() {
         let dateFormatter = DateFormatter()
@@ -129,6 +129,7 @@ class LoggedLocationsTableViewController: UITableViewController {
             //Update archieve list
             saveLoggedLocations()
             tableView.deleteRows(at: [indexPath], with: .fade)
+            loggedLocations = loadLoggedLocations()!
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    

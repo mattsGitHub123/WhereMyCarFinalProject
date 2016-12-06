@@ -80,4 +80,12 @@ class loggedLocation: NSObject, NSCoding {
         
         self.init(name: name, photo: photo, notes: notes, timeStamp: timeStamp, location: location)
     }
+    
+    override func isEqual(_ object: Any?) -> Bool {
+        if let object = object as? loggedLocation {
+            return timeStamp == object.timeStamp
+        } else {
+            return false
+        }
+    }
 }

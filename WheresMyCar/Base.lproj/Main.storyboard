@@ -131,11 +131,12 @@
                         <outlet property="nameTextField" destination="0f9-2r-Hvs" id="WJH-G2-ltB"/>
                         <outlet property="notesTextField" destination="X1l-4x-tSi" id="mJG-7q-e2K"/>
                         <outlet property="pickerView" destination="wef-ul-uSs" id="ObG-Cw-oyT"/>
+                        <segue destination="49e-Tb-3d3" kind="showDetail" identifier="toTabView" id="DFI-dv-1O5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2509.5999999999999" y="358.4707646176912"/>
+            <point key="canvasLocation" x="2879" y="358"/>
         </scene>
         <!--Location-->
         <scene sceneID="wg7-f3-ORb">
@@ -160,6 +161,7 @@
                         <barButtonItem key="leftBarButtonItem" systemItem="save" id="sS9-XT-Gaj">
                             <connections>
                                 <action selector="saveButton:" destination="8rJ-Kc-sve" id="86z-Ll-VzV"/>
+                                <segue destination="9pv-A4-QxB" kind="show" identifier="toAddDetails" id="BZR-YR-WNF"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Find Location" id="ZyY-tW-Qh9">
@@ -170,7 +172,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="IsE-IN-lnH" id="AAV-AF-dfo"/>
-                        <segue destination="9pv-A4-QxB" kind="showDetail" identifier="addDetails" action="showViewController:sender:" id="So2-pK-gOC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>

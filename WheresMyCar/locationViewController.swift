@@ -51,7 +51,7 @@ class locationViewController: UIViewController, CLLocationManagerDelegate {
     @IBAction func saveButton(_ sender: Any) {
         if (updatedCurrent == true) {
             updatedCurrent = false
-            performSegue(withIdentifier: "addDetails", sender: sender)
+            performSegue(withIdentifier: "toAddDetails", sender: sender)
         }
     }
     
