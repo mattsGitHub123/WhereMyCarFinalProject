@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class LoggedLocationsTableViewController: UITableViewController {
 
@@ -28,13 +29,14 @@ class LoggedLocationsTableViewController: UITableViewController {
         let dateFormatter = DateFormatter()
         var dateAsString = "01-12-2016 12:00"
         dateFormatter.dateFormat = "EEE, dd MMM yyyy HH:mm:ss zzz"
-    
-        let parkingDeck = loggedLocation(name: "RiverStreet", photo: #imageLiteral(resourceName: "parkingDeck"), notes: "3rd Floor, near stairs", timeStamp: dateFormatter.date(from: dateAsString) as NSDate?)
+        
+        var loc = CLLocation(latitude: 0, longitude: 0)
+        let parkingDeck = loggedLocation(name: "RiverStreet", photo: #imageLiteral(resourceName: "parkingDeck"), notes: "3rd Floor, near stairs", timeStamp: dateFormatter.date(from: dateAsString) as NSDate?, location: loc)
     
         dateAsString = "01-11-2016 14:02"
-        let parkingMeter = loggedLocation(name: "Parking Meter", photo: #imageLiteral(resourceName: "parkingMeter"), notes: "In front of store", timeStamp: dateFormatter.date(from: dateAsString) as NSDate?)
+        let parkingMeter = loggedLocation(name: "Parking Meter", photo: #imageLiteral(resourceName: "parkingMeter"), notes: "In front of store", timeStamp: dateFormatter.date(from: dateAsString) as NSDate?, location: loc)
         
-        let parkingSpot = loggedLocation(name: "Parking Spot", photo: #imageLiteral(resourceName: "regularParking"), notes: "Parallel Parked", timeStamp: dateFormatter.date(from: dateAsString) as NSDate?)
+        let parkingSpot = loggedLocation(name: "Parking Spot", photo: #imageLiteral(resourceName: "regularParking"), notes: "Parallel Parked", timeStamp: dateFormatter.date(from: dateAsString) as NSDate?, location: loc)
         
         loggedLocations += [parkingDeck, parkingMeter, parkingSpot]
         
