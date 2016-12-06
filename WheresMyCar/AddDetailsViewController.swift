@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class AddDetailsViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -20,6 +21,7 @@ class AddDetailsViewController: UIViewController, UITextFieldDelegate, UIPickerV
     var notes: String?
     var type: String?
     var image: UIImage?
+    var location: CLLocation?
     var imagePicker: UIImagePickerController!
     
     override func viewDidLoad() {
@@ -46,7 +48,6 @@ class AddDetailsViewController: UIViewController, UITextFieldDelegate, UIPickerV
         imagePicker.dismiss(animated: true, completion: nil)
         
         let photo = info[UIImagePickerControllerOriginalImage] as? UIImage
-        
         image = photo!
         imageField.image = resizeImage(image: image!, newWidth: 230)
     }
@@ -54,8 +55,6 @@ class AddDetailsViewController: UIViewController, UITextFieldDelegate, UIPickerV
     
     //Loosly based on: Source http://stackoverflow.com/questions/31966885/ios-swift-resize-image-to-200x200pt-px
     func resizeImage(image: UIImage, newWidth: CGFloat) -> UIImage? {
-        //let scale = newWidth / image.size.width
-        //let newHeight = image.size.height * scale
         UIGraphicsBeginImageContext(CGSize(width: newWidth, height: 200))
         image.draw(in: CGRect(x: 0, y: 0, width: newWidth, height: 200))
         
