@@ -127,7 +127,7 @@ class AddDetailsViewController: UIViewController, UITextFieldDelegate, UIPickerV
             } else {
                 loc = [loggedLocation]()
             }
-            loc.append(loggedLocation(name: name, photo: image, notes: notes, timeStamp: NSDate(), location: currentLocation))
+            loc.append(loggedLocation(name: name, photo: image, notes: notes, timeStamp: NSDate(), location: currentLocation, type: type))
             let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(loc, toFile: loggedLocation.ArchiveURL.path)
             if !isSuccessfulSave {
                 print("Failed to save meals...")

@@ -53,12 +53,12 @@ class LoggedLocationsTableViewController: UITableViewController {
         dateFormatter.dateFormat = "EEE, dd MMM yyyy HH:mm:ss zzz"
         
         let loc = CLLocation(latitude: 0, longitude: 0)
-        let parkingDeck = loggedLocation(name: "RiverStreet", photo: #imageLiteral(resourceName: "parkingDeck"), notes: "3rd Floor, near stairs", timeStamp: dateFormatter.date(from: dateAsString) as NSDate?, location: loc)
+        let parkingDeck = loggedLocation(name: "RiverStreet", photo: #imageLiteral(resourceName: "parkingDeck"), notes: "3rd Floor, near stairs", timeStamp: dateFormatter.date(from: dateAsString) as NSDate?, location: loc, type: "Parking Deck")
     
         dateAsString = "01-11-2016 14:02"
-        let parkingMeter = loggedLocation(name: "Parking Meter", photo: #imageLiteral(resourceName: "parkingMeter"), notes: "In front of store", timeStamp: dateFormatter.date(from: dateAsString) as NSDate?, location: loc)
+        let parkingMeter = loggedLocation(name: "Parking Meter", photo: #imageLiteral(resourceName: "parkingMeter"), notes: "In front of store", timeStamp: dateFormatter.date(from: dateAsString) as NSDate?, location: loc, type: "Meter")
         
-        let parkingSpot = loggedLocation(name: "Parking Spot", photo: #imageLiteral(resourceName: "regularParking"), notes: "Parallel Parked", timeStamp: dateFormatter.date(from: dateAsString) as NSDate?, location: loc)
+        let parkingSpot = loggedLocation(name: "Parking Spot", photo: #imageLiteral(resourceName: "regularParking"), notes: "Parallel Parked", timeStamp: dateFormatter.date(from: dateAsString) as NSDate?, location: loc, type: "Parking Spot")
         
         loggedLocations += [parkingDeck, parkingMeter, parkingSpot]
         

@@ -16,6 +16,7 @@ class loggedLocation: NSObject, NSCoding {
     var notes: String?
     var timeStamp: NSDate? //If a meter
     var location: CLLocation?
+    var type: String?
     let initialLocation = CLLocation(latitude: 36.216795, longitude: -81.6745517)
     
     static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
@@ -27,9 +28,10 @@ class loggedLocation: NSObject, NSCoding {
         static let notesKey = "notes"
         static let timeStampKey = "time"
         static let locationKey = "location"
+        static let typeKey = "type"
     }
     
-    init(name: String?, photo: UIImage?, notes: String?, timeStamp: NSDate?, location: CLLocation?) {
+    init(name: String?, photo: UIImage?, notes: String?, timeStamp: NSDate?, location: CLLocation?, type: String?) {
         if name == nil {
             self.name = "Not Provided"
         } else {
@@ -37,7 +39,7 @@ class loggedLocation: NSObject, NSCoding {
         }
         
         if notes == nil {
-            self.name = "Not Provided"
+            self.notes = "Not Provided"
         } else {
             self.notes = notes
         }
@@ -60,6 +62,12 @@ class loggedLocation: NSObject, NSCoding {
             self.location = location
         }
         
+        if type == nil {
+            self.type = "Not Provided"
+        } else {
+            self.type = type
+        }
+        
         super.init()
     }
     
@@ -69,6 +77,7 @@ class loggedLocation: NSObject, NSCoding {
         aCoder.encode(notes, forKey: PropertyKey.notesKey)
         aCoder.encode(timeStamp, forKey: PropertyKey.timeStampKey)
         aCoder.encode(location, forKey: PropertyKey.locationKey)
+        aCoder.encode(type, forKey: PropertyKey.typeKey)
     }
     
     required convenience init(coder aDecoder: NSCoder) {
@@ -77,8 +86,9 @@ class loggedLocation: NSObject, NSCoding {
         let notes = aDecoder.decodeObject(forKey: PropertyKey.notesKey) as? String
         let timeStamp = aDecoder.decodeObject(forKey: PropertyKey.timeStampKey) as? NSDate
         let location = aDecoder.decodeObject(forKey: PropertyKey.locationKey) as? CLLocation
+        let type = aDecoder.decodeObject(forKey: PropertyKey.locationKey) as? String
         
-        self.init(name: name, photo: photo, notes: notes, timeStamp: timeStamp, location: location)
+        self.init(name: name, photo: photo, notes: notes, timeStamp: timeStamp, location: location, type: type)
     }
     
     override func isEqual(_ object: Any?) -> Bool {
