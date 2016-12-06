@@ -95,6 +95,7 @@ class LoggedLocationsTableViewController: UITableViewController {
         cell.nameLabel.text = indLocation.name
         cell.photoImageView.image = indLocation.photo
         cell.notesLabel.text = indLocation.notes
+        cell.typeLabel.text = indLocation.type
         return cell
     }
     
