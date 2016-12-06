@@ -64,10 +64,10 @@
             </objects>
             <point key="canvasLocation" x="1740" y="-456.52173913043481"/>
         </scene>
-        <!--SavedLocations-->
+        <!--Add Detail-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController title="SavedLocations" id="9pv-A4-QxB" customClass="AddDetailsViewController" customModule="WheresMyCar" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Add Detail" id="9pv-A4-QxB" customClass="AddDetailsViewController" customModule="WheresMyCar" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
@@ -126,6 +126,7 @@
                             <constraint firstItem="5sT-uR-Kqt" firstAttribute="bottom" secondItem="4ug-Mw-9AY" secondAttribute="top" id="t0i-4b-xbN"/>
                         </constraints>
                     </view>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="imageField" destination="d4J-ry-cEH" id="yW9-jF-1dW"/>
                         <outlet property="nameTextField" destination="0f9-2r-Hvs" id="WJH-G2-ltB"/>

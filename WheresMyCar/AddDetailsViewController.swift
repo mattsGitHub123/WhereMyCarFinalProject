@@ -26,6 +26,8 @@ class AddDetailsViewController: UIViewController, UITextFieldDelegate, UIPickerV
     
     override func viewDidLoad() {
         navigationItem.hidesBackButton = true
+        let saveButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.save, target: self, action: #selector(AddDetailsViewController.saveMethod))
+        navigationItem.rightBarButtonItem = saveButton
         super.viewDidLoad()
         nameTextField.delegate = self
         notesTextField.delegate = self
@@ -37,6 +39,10 @@ class AddDetailsViewController: UIViewController, UITextFieldDelegate, UIPickerV
         // Do any additional setup after loading the view.
     }
 
+    func saveMethod() {
+        print("Perform action")
+    }
+    
     func tappedMe() {
         imagePicker =  UIImagePickerController()
         imagePicker.delegate = self
