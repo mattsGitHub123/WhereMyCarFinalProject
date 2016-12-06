@@ -119,18 +119,13 @@ class AddDetailsViewController: UIViewController, UITextFieldDelegate, UIPickerV
         if locations.count > 0 {
             //Last will be the most recent location found.
             currentLocation = locations.first
-            //let savedLocations = NSKeyedUnarchiver.unarchiveObject(withFile: loggedLocation.ArchiveURL.path) as! [loggedLocation]
-            //if savedLocations == nil {
-            //    print("nil")
-            //}
-            //else {
-                var loc = [loggedLocation]()
-                loc.append(loggedLocation(name: name, photo: image, notes: notes, timeStamp: NSDate(), location: currentLocation))
-                let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(loc, toFile: loggedLocation.ArchiveURL.path)
-                if !isSuccessfulSave {
-                    print("Failed to save meals...")
-                }
-            //}
+            var loc = [loggedLocation]()
+            loc.append(loggedLocation(name: name, photo: image, notes: notes, timeStamp: NSDate(), location: currentLocation))
+            let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(loc, toFile: loggedLocation.ArchiveURL.path)
+            if !isSuccessfulSave {
+                print("Failed to save meals...")
+            }
+            //performSegue(withIdentifier: "toTableView", sender: self)
         }
     }
     

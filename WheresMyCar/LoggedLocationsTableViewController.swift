@@ -21,7 +21,29 @@ class LoggedLocationsTableViewController: UITableViewController {
 
        
         navigationItem.leftBarButtonItem = editButtonItem
-        loadSampleLocations()
+        //loadSampleLocations()
+        //saveLoggedLocations()
+        if let savedLocations = loadLoggedLocations() {
+            for location in savedLocations {
+                if !(loggedLocations.contains(location)) {
+                    loggedLocations.append(location)
+                }
+            }
+        } else {
+            loadSampleLocations()
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if let savedLocations = loadLoggedLocations() {
+            for location in savedLocations {
+                if !(loggedLocations.contains(location)) {
+                    loggedLocations.append(location)
+                }
+            }
+        } else {
+            loadSampleLocations()
+        }
     }
 
     //Used for demo purposes
@@ -76,7 +98,20 @@ class LoggedLocationsTableViewController: UITableViewController {
         return cell
     }
     
-
+    //Archives for Persistents
+    func saveLoggedLocations() {
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(loggedLocations, toFile: loggedLocation.ArchiveURL.path)
+        if !isSuccessfulSave {
+            print("Failed to save Loations...")
+        }
+    }
+    
+    //Loads logged locations
+    func loadLoggedLocations() -> [loggedLocation]? {
+        //print(loggedLocation.ArchiveURL.path)
+        return NSKeyedUnarchiver.unarchiveObject(withFile: loggedLocation.ArchiveURL.path) as? [loggedLocation]
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -91,6 +126,8 @@ class LoggedLocationsTableViewController: UITableViewController {
         if editingStyle == .delete {
             // Delete the row from the data source
             loggedLocations.remove(at: indexPath.row)
+            //Update archieve list
+            saveLoggedLocations()
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view

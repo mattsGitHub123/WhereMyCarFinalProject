@@ -16,6 +16,7 @@ class loggedLocation: NSObject, NSCoding {
     var notes: String?
     var timeStamp: NSDate? //If a meter
     var location: CLLocation?
+    let initialLocation = CLLocation(latitude: 36.216795, longitude: -81.6745517)
     
     static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
     static let ArchiveURL = DocumentsDirectory.appendingPathComponent("locations")
@@ -31,17 +32,34 @@ class loggedLocation: NSObject, NSCoding {
     init(name: String?, photo: UIImage?, notes: String?, timeStamp: NSDate?, location: CLLocation?) {
         if name == nil {
             self.name = "Not Provided"
+        } else {
+            self.name = name
         }
         
         if notes == nil {
             self.name = "Not Provided"
+        } else {
+            self.notes = notes
         }
         
-        self.name = name
-        self.photo = photo
-        self.notes = notes
-        self.timeStamp = timeStamp
-        self.location = location
+        if photo == nil {
+            self.photo = #imageLiteral(resourceName: "defaultPhoto")
+        } else {
+            self.photo = photo
+        }
+        
+        if timeStamp == nil {
+            self.timeStamp = NSDate()
+        } else {
+            self.timeStamp = timeStamp
+        }
+        
+        if location == nil {
+            self.location = initialLocation
+        } else {
+            self.location = location
+        }
+        
         super.init()
     }
     
@@ -53,12 +71,12 @@ class loggedLocation: NSObject, NSCoding {
         aCoder.encode(location, forKey: PropertyKey.locationKey)
     }
     
-    required convenience init?(coder aDecoder: NSCoder) {
-        let name = aDecoder.decodeObject(forKey: PropertyKey.nameKey) as! String
-        let photo = aDecoder.decodeObject(forKey: PropertyKey.photoKey) as! UIImage
-        let notes = aDecoder.decodeObject(forKey: PropertyKey.notesKey) as! String
-        let timeStamp = aDecoder.decodeObject(forKey: PropertyKey.timeStampKey) as! NSDate
-        let location = aDecoder.decodeObject(forKey: PropertyKey.locationKey) as! CLLocation
+    required convenience init(coder aDecoder: NSCoder) {
+        let name = aDecoder.decodeObject(forKey: PropertyKey.nameKey) as? String
+        let photo = aDecoder.decodeObject(forKey: PropertyKey.photoKey) as? UIImage
+        let notes = aDecoder.decodeObject(forKey: PropertyKey.notesKey) as? String
+        let timeStamp = aDecoder.decodeObject(forKey: PropertyKey.timeStampKey) as? NSDate
+        let location = aDecoder.decodeObject(forKey: PropertyKey.locationKey) as? CLLocation
         
         self.init(name: name, photo: photo, notes: notes, timeStamp: timeStamp, location: location)
     }
