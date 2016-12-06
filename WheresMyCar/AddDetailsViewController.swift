@@ -25,6 +25,7 @@ class AddDetailsViewController: UIViewController, UITextFieldDelegate, UIPickerV
     var imagePicker: UIImagePickerController!
     
     override func viewDidLoad() {
+        navigationItem.hidesBackButton = true
         super.viewDidLoad()
         nameTextField.delegate = self
         notesTextField.delegate = self

@@ -30,7 +30,7 @@ class LoggedLocationsTableViewController: UITableViewController {
         var dateAsString = "01-12-2016 12:00"
         dateFormatter.dateFormat = "EEE, dd MMM yyyy HH:mm:ss zzz"
         
-        var loc = CLLocation(latitude: 0, longitude: 0)
+        let loc = CLLocation(latitude: 0, longitude: 0)
         let parkingDeck = loggedLocation(name: "RiverStreet", photo: #imageLiteral(resourceName: "parkingDeck"), notes: "3rd Floor, near stairs", timeStamp: dateFormatter.date(from: dateAsString) as NSDate?, location: loc)
     
         dateAsString = "01-11-2016 14:02"
