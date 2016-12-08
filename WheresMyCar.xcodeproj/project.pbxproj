@@ -17,6 +17,7 @@
 		7BAE32481DF5CDE900181848 /* LoggedLocationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAE32471DF5CDE900181848 /* LoggedLocationsTableViewController.swift */; };
 		7BAE324A1DF5CE4300181848 /* loggedLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAE32491DF5CE4300181848 /* loggedLocation.swift */; };
 		7BAE324C1DF5EA7500181848 /* AddDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAE324B1DF5EA7500181848 /* AddDetailsViewController.swift */; };
+		7BD016CE1DF8B74100B3A8D6 /* mapOnlyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD016CD1DF8B74100B3A8D6 /* mapOnlyViewController.swift */; };
 		7BDFE12E1DF5C92E009437BD /* LoggedLocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDFE12D1DF5C92E009437BD /* LoggedLocationTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,7 @@
 		7BAE32471DF5CDE900181848 /* LoggedLocationsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggedLocationsTableViewController.swift; sourceTree = "<group>"; };
 		7BAE32491DF5CE4300181848 /* loggedLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = loggedLocation.swift; sourceTree = "<group>"; };
 		7BAE324B1DF5EA7500181848 /* AddDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddDetailsViewController.swift; sourceTree = "<group>"; };
+		7BD016CD1DF8B74100B3A8D6 /* mapOnlyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mapOnlyViewController.swift; sourceTree = "<group>"; };
 		7BDFE12D1DF5C92E009437BD /* LoggedLocationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggedLocationTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -73,6 +75,7 @@
 				7B05E6D61DF485210043B8FD /* locationViewController.swift */,
 				7BAE324B1DF5EA7500181848 /* AddDetailsViewController.swift */,
 				7B05E6D81DF485210043B8FD /* Main.storyboard */,
+				7BD016CD1DF8B74100B3A8D6 /* mapOnlyViewController.swift */,
 				7BAE32471DF5CDE900181848 /* LoggedLocationsTableViewController.swift */,
 				7BAE32491DF5CE4300181848 /* loggedLocation.swift */,
 				7BDFE12D1DF5C92E009437BD /* LoggedLocationTableViewCell.swift */,
@@ -174,6 +177,7 @@
 				7B05E6D71DF485210043B8FD /* locationViewController.swift in Sources */,
 				7BAE324A1DF5CE4300181848 /* loggedLocation.swift in Sources */,
 				7B05E6D31DF485210043B8FD /* AppDelegate.swift in Sources */,
+				7BD016CE1DF8B74100B3A8D6 /* mapOnlyViewController.swift in Sources */,
 				7BDFE12E1DF5C92E009437BD /* LoggedLocationTableViewCell.swift in Sources */,
 				7B05E6EA1DF4B2D80043B8FD /* locationManagerController.swift in Sources */,
 			);

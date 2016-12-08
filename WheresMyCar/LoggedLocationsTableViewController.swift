@@ -58,7 +58,7 @@ class LoggedLocationsTableViewController: UITableViewController {
         dateAsString = "01-11-2016 14:02"
         let parkingMeter = loggedLocation(name: "Parking Meter", photo: #imageLiteral(resourceName: "parkingMeter"), notes: "In front of store", timeStamp: dateFormatter.date(from: dateAsString) as NSDate?, location: loc, type: "Meter")
         
-        let parkingSpot = loggedLocation(name: "Parking Spot", photo: #imageLiteral(resourceName: "regularParking"), notes: "Parallel Parked", timeStamp: dateFormatter.date(from: dateAsString) as NSDate?, location: loc, type: "Parking Spot")
+        let parkingSpot = loggedLocation(name: "On Street", photo: #imageLiteral(resourceName: "regularParking"), notes: "Parallel Parked", timeStamp: dateFormatter.date(from: dateAsString) as NSDate?, location: loc, type: "Parking Spot")
         
         loggedLocations += [parkingDeck, parkingMeter, parkingSpot]
         
@@ -88,10 +88,8 @@ class LoggedLocationsTableViewController: UITableViewController {
         // Table view cells are reused and should be dequeued using a cell identifier.
         let cellIdentifier = "LoggedLocationTableViewCell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! LoggedLocationTableViewCell
-        
         // Fetches the appropriate meal for the data source layout.
         let indLocation = loggedLocations[indexPath.row]
-
         cell.nameLabel.text = indLocation.name
         cell.photoImageView.image = indLocation.photo
         cell.notesLabel.text = indLocation.notes
@@ -136,7 +134,15 @@ class LoggedLocationsTableViewController: UITableViewController {
         }    
     }
     
-
+    //Called when a row is clicked
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let mapOnlyVC = storyboard?.instantiateViewController(withIdentifier: "mapOnlyViewController") as! mapOnlyViewController
+        mapOnlyVC.carLocation = loggedLocations[indexPath.row].location!
+        mapOnlyVC.name = loggedLocations[indexPath.row].name!
+        mapOnlyVC.type = loggedLocations[indexPath.row].type!
+        navigationController?.pushViewController(mapOnlyVC, animated: true)
+    }
+    
     /*
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
